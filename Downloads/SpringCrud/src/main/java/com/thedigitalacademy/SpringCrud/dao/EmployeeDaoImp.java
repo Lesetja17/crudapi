@@ -33,8 +33,9 @@ public class EmployeeDaoImp implements EmployeeDao {
 
 	@Override
 	public Employee get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession=entityManager.unwrap(Session.class);
+		Employee employeeObj=currentSession.get(Employee.class, id);
+		return employeeObj;
 	}
 
 	@Override
